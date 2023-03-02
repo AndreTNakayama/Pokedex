@@ -1,12 +1,14 @@
+import styles from "./pokemon.module.css";
+
 function Texto(props){
     return (
-        <>
-            <h1>{props.nome}</h1>
-            <p>{props.tipo}</p>
-            <p>{props.habilidade}</p>
-            <p>{props.peso}</p>
-            <p>{props.altura}</p>
-        </>
+        <h1 className={styles.pokemonData}>
+            <span className={styles.pokemonNome}>{props.nome}</span>
+            <span className={styles.pokemonInfo}>{props.tipo}</span>
+            <span className={styles.pokemonInfo}>{props.habilidade}</span>
+            <span className={styles.pokemonInfo}>{props.peso}</span>
+            <span className={styles.pokemonInfo}>{props.altura}</span>
+        </h1>
     );
 }
 
