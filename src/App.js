@@ -1,8 +1,8 @@
 import React from "react";
-// import Pokemon from "./components/pokemon/pokemon";
 import pokedex from "./pokedex.png";
 import Imagem from "./components/pokemon/imagem";
 import Texto from "./components/pokemon/texto";
+import styles from "./components/pokemon/pokemon.module.css";
 
 let poke_num = 1;
 
@@ -35,26 +35,16 @@ function App(){
     <main>
       <Imagem imagem={pokemon.sprites.front_default} altPokemon={"Pokemon"}></Imagem>
       <Texto nome={pokemon.id + ". " + pokemon.name} altPokemon={"Pokédex"}></Texto>
+      <Texto tipo = {"Tipo(s): " + pokemon.types.map(type => type.type.name).join(" | ")} habilidade = {"Habilidade(s): " + pokemon.abilities.map(ability => ability.ability.name).join(" | ")} peso = {"Peso: " + pokemon.weight} altura = {"Altura: " + pokemon.height}></Texto>
       <Imagem pokedex={pokedex}></Imagem>
-      {/* <Texto tipo = {"Tipo(s): " + pokemon.types.map(type => type.type.name).join(" | ")} habilidade = {"Habilidade(s): " + pokemon.abilities.map(ability => ability.ability.name).join(" | ")} peso = {"Peso: " + pokemon.weight + " kg"} altura = {"Altura: " + pokemon.height + " pounds"}></Texto> */}
+      <div className={styles.pokemonBotao}>
+        <button class="btn btn-dark mt-2 mx-2" onClick={Anterior}>Anterior</button>
+        <button class="btn btn-dark mt-2 mx-2" onClick={Proximo}>Proximo</button>
+      </div>
+      
       {/* <Imagem shiny = {pokemon.sprites.front_shiny}></Imagem> */}
-      <button class="btn btn-dark mt-2 mx-2" onClick={Anterior}>Anterior</button>
-      <button class="btn btn-dark mt-2 mx-2" onClick={Proximo}>Proximo</button>
     </main>
-    // <div className="main">
-    //   <img src={pokedex}></img>
-    //   <Pokemon imagem={pokemon.sprites.front_default}></Pokemon>
-    //   <div className="container mt-5">
-    //     <div>
-    //       <Pokemon imagem={pokemon.sprites.front_default} nome={pokemon.id + ". " + pokemon.name} tipo = {"Tipo(s): " + pokemon.types.map(type => type.type.name).join(" | ")} habilidade = {"Habilidade(s): " + pokemon.abilities.map(ability => ability.ability.name).join(" | ")} peso = {"Peso: " + pokemon.weight + " kg"} altura = {"Altura: " + pokemon.height + " pounds"} shiny = {pokemon.sprites.front_shiny}></Pokemon>
-    //     </div>
-    //     <div className="d-flex justify-content-center">
-    //       <button class="btn btn-dark mx-2" onClick={Anterior}>Anterior</button>
-    //       <button class="btn btn-dark mx-2" onClick={Proximo}>Proximo</button>
-    //     </div>
-    //   </div>
-    // </div>
-    
+
     :
 
     <div className="container mt-5 card border-dark">
